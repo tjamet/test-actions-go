@@ -1,0 +1,15 @@
+name: Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ["ubuntu"]
+    steps:
+    - uses: 'actions-go/build@main'
+      id: build-action
+      inputs:
+        action_path: ./cmd/action
+    - name: Run CI script
+      run: '${{ steps.build-action.outputs.install-path }}'
