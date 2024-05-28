@@ -14,5 +14,7 @@ jobs:
       id: build-action
       with:
         action_path: ./cmd/action
+        action: ${{ github.action }}
+
     - name: Run CI script
       run: '${{ steps.build-action.outputs.install-path }}'
