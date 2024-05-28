@@ -12,7 +12,7 @@ jobs:
 
     - uses: 'actions-go/build@main'
       id: build-action
-      inputs:
+      with:
         action_path: ./cmd/action
     - name: Run CI script
       run: '${{ steps.build-action.outputs.install-path }}'
