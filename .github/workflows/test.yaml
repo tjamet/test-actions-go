@@ -2,11 +2,14 @@ name: Test
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   test:
     runs-on: ["ubuntu"]
     steps:
+    - uses: actions/checkout@v4
+
     - uses: 'actions-go/build@main'
       id: build-action
       inputs:
