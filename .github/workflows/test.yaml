@@ -8,6 +8,7 @@ jobs:
   test:
     runs-on: ["ubuntu-latest"]
     steps:
+
     - uses: actions/checkout@v4
 
     - uses: 'actions-go/build@main'
@@ -15,6 +16,7 @@ jobs:
       with:
         action_path: ./cmd/action
         action: ${{ github.action }}
+    - run: find .
 
     - name: Run CI script
       run: '${{ steps.build-action.outputs.install-path }}'
